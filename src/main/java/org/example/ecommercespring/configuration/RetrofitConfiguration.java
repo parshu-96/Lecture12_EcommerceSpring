@@ -13,6 +13,7 @@ public class RetrofitConfiguration {
 
     @Value("${FAKE_STORE_BASE_URL}") // Name should match key in .env
     private String baseUrl;
+
     @Bean
     public Retrofit retrofit(){
         return new Retrofit.Builder()
@@ -25,10 +26,9 @@ public class RetrofitConfiguration {
     public IFakeStoreCategoryAPI iFakeStoreCategoryAPI(Retrofit retrofit){
         return retrofit.create(IFakeStoreCategoryAPI.class);
     }
-    
+
     @Bean
-    public IFakeStoreGetProductsByCategoryAPI iFakeStoreGetProductsByCategoryAPI(Retrofit retrofit)
-    {
+    public IFakeStoreGetProductsByCategoryAPI iFakeStoreGetProductsByCategoryAPI(Retrofit retrofit) {
         return retrofit.create(IFakeStoreGetProductsByCategoryAPI.class);
     }
 }

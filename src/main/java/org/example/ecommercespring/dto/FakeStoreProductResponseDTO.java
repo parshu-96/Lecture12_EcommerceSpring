@@ -9,9 +9,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CategoryDTO {
-    private String name;
+public class FakeStoreProductResponseDTO {
     private String status;
     private String message;
-    private List<String> categories;
+    private List<ProductDTO> products;
 }

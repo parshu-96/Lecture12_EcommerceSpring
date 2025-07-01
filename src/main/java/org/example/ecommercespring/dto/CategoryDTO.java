@@ -2,8 +2,6 @@ package org.example.ecommercespring.dto;
 
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -11,7 +9,4 @@ import java.util.List;
 @Builder
 public class CategoryDTO {
     private String name;
-    private String status;
-    private String message;
-    private List<String> categories;
 }

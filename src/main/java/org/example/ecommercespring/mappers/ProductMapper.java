@@ -1,43 +1,38 @@
 package org.example.ecommercespring.mappers;
 
-
 import org.example.ecommercespring.dto.ProductDTO;
 import org.example.ecommercespring.entity.Product;
 
 public class ProductMapper {
 
-    public static ProductDTO productDTO(Product product)
-    {
+    public static ProductDTO toDto(Product product){
         return ProductDTO.builder()
                 .id(product.getId())
-                .title(product.getTitle())
                 .image(product.getImage())
+                .color(product.getColor())
                 .price(product.getPrice())
                 .description(product.getDescription())
-                .brand(product.getBrand())
-                .model(product.getModel())
-                .color(product.getColor())
-                .category(product.getCategory())
-                .isPopular(product.isPopular())
                 .discount(product.getDiscount())
-                .onSale(product.isOnSale())
+                .model(product.getModel())
+                .title(product.getTitle())
+                .category(product.getCategory())
+                .brand(product.getBrand())
+                .popular(product.isPopular())
                 .build();
     }
-    public static Product toEntity(ProductDTO productDTO)
-    {
+
+    public static Product toEntity(ProductDTO dto) {
         return Product.builder()
-                .id(productDTO.getId())
-                .title(productDTO.getTitle())
-                .image(productDTO.getImage())
-                .price(productDTO.getPrice())
-                .description(productDTO.getDescription())
-                .brand(productDTO.getBrand())
-                .model(productDTO.getModel())
-                .color(productDTO.getColor())
-                .category(productDTO.getCategory())
-                .isPopular(productDTO.isPopular())
-                .discount(productDTO.getDiscount())
-                .onSale(productDTO.isOnSale())
+                .image(dto.getImage())
+                .color(dto.getColor())
+                .price(dto.getPrice())
+                .description(dto.getDescription())
+                .discount(dto.getDiscount())
+                .model(dto.getModel())
+                .title(dto.getTitle())
+                .category(dto.getCategory())
+                .brand(dto.getBrand())
+                .popular(dto.isPopular())
                 .build();
     }
 }

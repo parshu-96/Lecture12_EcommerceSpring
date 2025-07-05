@@ -2,10 +2,7 @@ package org.example.ecommercespring.gateway;
 
 import org.example.ecommercespring.dto.ProductDTO;
 
-import java.io.IOException;
-import java.util.List;
-
 public interface IProductGateway {
-    List<ProductDTO> getAllProductsByCateogory(String category) throws IOException;
-    ProductDTO getProductById(int id) throws IOException;
+
+    ProductDTO getProductById(Long id) throws Exception;
 }

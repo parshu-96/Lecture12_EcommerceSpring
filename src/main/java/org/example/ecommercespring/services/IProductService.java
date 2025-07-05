@@ -2,11 +2,8 @@ package org.example.ecommercespring.services;
 
 import org.example.ecommercespring.dto.ProductDTO;
 
-import java.io.IOException;
-import java.util.List;
-
 public interface IProductService {
-    List<ProductDTO> getProductsByCategory(String category) throws IOException;
-    ProductDTO getProductById(Long id) throws IOException;
-    ProductDTO createProduct(ProductDTO productDTO);
+
+    ProductDTO getProductById(Long id) throws Exception;
+    ProductDTO createProduct(ProductDTO dto);
 }

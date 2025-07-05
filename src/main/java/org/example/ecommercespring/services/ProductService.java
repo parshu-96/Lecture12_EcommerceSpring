@@ -1,35 +1,35 @@
 package org.example.ecommercespring.services;
 
 import org.example.ecommercespring.dto.ProductDTO;
-import org.example.ecommercespring.entity.Product;
 import org.example.ecommercespring.mappers.ProductMapper;
+import org.example.ecommercespring.entity.Product;
 import org.example.ecommercespring.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.List;
+@Service
+public class ProductService implements IProductService{
 
-public class ProductService implements IProductService {
-    private final ProductRepository productRepository;
+    private final ProductRepository repo;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
     }
+
+    public ProductDTO getProductById(Long id) throws Exception {
+    //        return repo.findById(id)
+    //                .map(ProductMapper::toDto)
+    //                .orElseThrow(() -> new Exception("Product not found"));`
+
+        Product product = repo.findById(id)
+                .orElseThrow(() -> new Exception("Product not found"));
+
+         return ProductMapper.toDto(product);
+    }
+
     @Override
-    public List<ProductDTO> getProductsByCategory(String category) throws IOException {
-        return List.of();
+    public ProductDTO createProduct(ProductDTO dto) {
+        Product saved = repo.save(ProductMapper.toEntity(dto));
+        return ProductMapper.toDto(saved);
     }
 
-    @Override
-    public ProductDTO getProductById(Long id) throws IOException {
-        return productRepository.findById(id)
-                .map(ProductMapper::productDTO)
-                .orElseThrow(() -> new IOException("Product not found with id: " + id));
-    }
-
-    @Override
-    public ProductDTO createProduct(ProductDTO productDTO) {
-        Product newProduct = productRepository.save(ProductMapper.toEntity(productDTO));
-        return ProductMapper.productDTO(newProduct);
-
-    }
 }

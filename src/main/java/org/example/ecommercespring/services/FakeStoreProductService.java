@@ -4,11 +4,9 @@ import org.example.ecommercespring.dto.ProductDTO;
 import org.example.ecommercespring.gateway.IProductGateway;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.List;
-
 @Service
 public class FakeStoreProductService implements IProductService {
+
     private final IProductGateway productGateway;
 
     public FakeStoreProductService(IProductGateway productGateway) {
@@ -16,12 +14,11 @@ public class FakeStoreProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDTO> getProductsByCategory(String category) throws IOException {
-        return this.productGateway.getAllProductsByCateogory(category);
+    public ProductDTO getProductById(Long id) throws Exception {
+        return this.productGateway.getProductById(id);
     }
 
-    @Override
-    public ProductDTO getProductById(int id) throws IOException {
-        return this.productGateway.getProductById(id);
+    public ProductDTO createProduct(ProductDTO dto) {
+        return null;
     }
 }

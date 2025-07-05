@@ -10,17 +10,16 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class Product extends BaseEntity{
-    private long id;
-    private String title;
-    private  String image;
-    private double price;
-    private String description;
-    private String brand;
-    private String model;
+
+    private String image;
     private String color;
-    private String category;
-    private boolean isPopular;
+    private int price;
+    private String description;
     private int discount;
-    private boolean onSale;
+    private String model;
+    private String title;
+    private String category;
+    private String brand;
+    private boolean popular;
 
 }

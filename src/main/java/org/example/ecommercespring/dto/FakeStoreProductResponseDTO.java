@@ -1,16 +1,16 @@
 package org.example.ecommercespring.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FakeStoreProductResponseDTO {
-    private String status;
-    private String message;
-    private List<ProductDTO> products;
+	private ProductDTO product;
+	private String message;
+	private String status;
 }
